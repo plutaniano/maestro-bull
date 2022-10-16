@@ -14,20 +14,12 @@ class Yield:
 
     @classmethod
     def parse(cls, v):
-        if match := IPCA_PLUS.match(v):
-            linear, angular = "ipca", None
-        elif match := CDI_PLUS.match(v):
-            linear, angular = "cdi", None
-        elif match := IPCA.match(v):
-            linear, angular = None, "ipca"
-        elif match := CDI.match(v):
-            linear, angular = None, "cdi"
-        elif match := PERCENT.match(v):
-            linear, angular = None, None
+        match = (
+            IPCA_PLUS.match(v)
+            or CDI_PLUS.match(v)
+            or IPCA.match(v)
+            or CDI.match(v)
+            or PERCENT.match(v)
+        )
         percent = match.group("percent")
-        # return {
-        #     "percent": float(percent.replace(",", ".")),
-        #     "linear": linear,
-        #     "angular": angular,
-        # }
         return float(percent.replace(",", "."))

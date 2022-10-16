@@ -4,8 +4,12 @@ from django.utils import timezone
 from dateutil.relativedelta import relativedelta
 
 
-last_month = lambda: timezone.localdate().replace(day=1)
-one_year_ago = lambda: last_month() - relativedelta(years=1)
+def last_month():
+    return timezone.localdate().replace(day=1)
+
+
+def one_year_ago():
+    return last_month() - relativedelta(years=1)
 
 
 class DateRangeParams(BaseModel):

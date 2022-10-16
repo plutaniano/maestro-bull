@@ -42,8 +42,9 @@ def send_newspapers(*, channel):
     BoletaBot.client.files_upload(
         channels=channel,
         file=file.read(),
-        initial_comment=f":rolled_up_newspaper: *Jornais do Dia*\n\t"
-        + f"\n\t".join(strings),
+        initial_comment=(
+            ":rolled_up_newspaper: *Jornais do Dia*\n\t" + "\n\t".join(strings)
+        ),
         filename=f"Jornais - {date_fmt(timezone.localdate(), 'D, d M Y')}.pdf",
         filetype="pdf",
     )

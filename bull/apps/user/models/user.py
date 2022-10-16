@@ -82,7 +82,9 @@ class User(auth.models.AbstractUser):
         return self.get_full_name()
 
     def patrimony(self):
-        func = lambda field: Sum(Coalesce(F(field), Decimal("0.00")))
+        def func(field):
+            return Sum(Coalesce(F(field), Decimal("0.00")))
+
         return self.clients.in_base().aggregate(
             balance=func("positions__balance__available_balance"),
             coe=func("positions__coe__gross_value"),

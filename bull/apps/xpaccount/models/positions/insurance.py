@@ -1,4 +1,3 @@
-from secrets import choice
 from django.db import models
 from bull.utils.xp_api.endpoints.positions.insurance import (
     InsuranceStatus,

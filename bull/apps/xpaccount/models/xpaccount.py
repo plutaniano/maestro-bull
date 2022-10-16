@@ -106,13 +106,13 @@ class XPAccountQuerySet(models.QuerySet):
                 ws.cell(row, 7).value = "Sim" if protocols else ""
             except TreasureNotEnabled:
                 ws.cell(row, 7).value = "Conta não habilitada para TD"
-            except:
+            except Exception:
                 ws.cell(row, 7).value = "Erro desconhecido"
 
             try:
                 withdrawals = acc.notable_withdrawals()
                 ws.cell(row, 8).value = "Sim" if withdrawals else ""
-            except:
+            except Exception:
                 ws.cell(row, 8).value = "Erro desconhecido"
 
             date_string = f"{tz.localtime(acc.positions.updated_at):%H:%M %d/%m/%y}"
@@ -706,7 +706,7 @@ class XPAccount(models.Model):
     @classmethod
     def __get_validators__(cls):
         "Permite que a classe seja usada com o Pydantic"
-        yield lambda *args, **kwargs: int(*args, **kwargs)  # noqa
+        yield lambda *args, **kwargs: int(*args, **kwargs)
         # O yield abaixo garante que se v == 0, o valor retornado será None
         # já que a XP de vez em quando coloca 0 nos relatórios de receita
         # para indicar que a receita não está associada a nenhum assessor.

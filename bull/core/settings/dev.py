@@ -1,4 +1,5 @@
-from bull.core.settings.base import *
+import os
+from bull.core.settings.base import *  # noqa: F403
 
 DEBUG = True
 ALLOWED_HOSTS = ["*"]

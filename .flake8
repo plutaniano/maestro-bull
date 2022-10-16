@@ -1,0 +1,8 @@
+[flake8]
+
+extend-ignore = W503,E203,F722
+exclude = migrations
+per-file-ignores =
+    __init__.py:F401,F403
+    ./bull/core/settings/dev.py:F405
+    ./bull/core/settings/prod.py:F405

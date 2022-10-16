@@ -8,5 +8,5 @@ BR_TZ = zoneinfo.ZoneInfo("America/Sao_Paulo")
 def zero_div(dividend, divisor, default=None):
     try:
         return dividend / divisor
-    except (ZeroDivisionError, decimal.InvalidOperation) as e:
+    except (ZeroDivisionError, decimal.InvalidOperation):
         return default
