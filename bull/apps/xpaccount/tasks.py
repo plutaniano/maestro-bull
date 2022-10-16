@@ -115,7 +115,7 @@ def best_available_assets(*, channel):
         pd.DataFrame.from_dict(accumulate(fees)).to_excel(
             writer, sheet_name="Melhores Taxas"
         )
-        pd.DataFrame.from_dict(reduce(operator.add, comissions, [])).to_excel(
+        pd.DataFrame.from_dict(accumulate(comissions)).to_excel(
             writer, sheet_name="Melhores Comissões"
         )
         pd.DataFrame.from_dict([a.dict() for a in all_assets]).to_excel(
