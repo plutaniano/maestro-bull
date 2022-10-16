@@ -7,38 +7,120 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='SlackUser',
+            name="SlackUser",
             fields=[
-                ('id', models.CharField(max_length=32, primary_key=True, serialize=False, verbose_name='Slack User ID')),
-                ('team_id', models.CharField(max_length=32, verbose_name='Slack Team ID')),
-                ('name', models.CharField(max_length=64, verbose_name='Slack Username')),
-                ('deleted', models.BooleanField(verbose_name='Deletado')),
-                ('color', models.CharField(max_length=6, verbose_name='Cor')),
-                ('real_name', models.CharField(max_length=128, verbose_name='Nome Completo')),
-                ('tz', models.CharField(max_length=64, verbose_name='Fuso Horário')),
-                ('tz_label', models.CharField(max_length=64, verbose_name='Nome do fuso horário')),
-                ('tz_offset', models.IntegerField(blank=True, null=True, verbose_name='Offset do fuso horário')),
-                ('profile', models.JSONField(default=dict, verbose_name='Slack Profile')),
-                ('is_admin', models.BooleanField(blank=True, null=True, verbose_name='Slack Admin')),
-                ('is_owner', models.BooleanField(blank=True, null=True, verbose_name='Slack Workspace Owner')),
-                ('is_primary_owner', models.BooleanField(blank=True, null=True, verbose_name='Slack Workspace Primary Owner')),
-                ('is_restricted', models.BooleanField(blank=True, null=True, verbose_name='Slack Restricted')),
-                ('is_ultra_restricted', models.BooleanField(blank=True, null=True, verbose_name='Slack Ultra Restricted')),
-                ('is_bot', models.BooleanField(blank=True, null=True, verbose_name='Slack Bot')),
-                ('is_app_user', models.BooleanField(verbose_name='Slack App User')),
-                ('is_workflow_bot', models.BooleanField(default=False, verbose_name='É um bot de workflow?')),
-                ('updated', models.DateTimeField(verbose_name='Atualizado em')),
-                ('is_email_confirmed', models.BooleanField(blank=True, null=True, verbose_name='Confirmou email no slack?')),
-                ('who_can_share_contact_card', models.CharField(max_length=128, verbose_name='Quem pode compartilhar cartão de contato')),
-                ('is_invited_user', models.BooleanField(blank=True, null=True, verbose_name='Usuário convidado')),
+                (
+                    "id",
+                    models.CharField(
+                        max_length=32,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="Slack User ID",
+                    ),
+                ),
+                (
+                    "team_id",
+                    models.CharField(max_length=32, verbose_name="Slack Team ID"),
+                ),
+                (
+                    "name",
+                    models.CharField(max_length=64, verbose_name="Slack Username"),
+                ),
+                ("deleted", models.BooleanField(verbose_name="Deletado")),
+                ("color", models.CharField(max_length=6, verbose_name="Cor")),
+                (
+                    "real_name",
+                    models.CharField(max_length=128, verbose_name="Nome Completo"),
+                ),
+                ("tz", models.CharField(max_length=64, verbose_name="Fuso Horário")),
+                (
+                    "tz_label",
+                    models.CharField(
+                        max_length=64, verbose_name="Nome do fuso horário"
+                    ),
+                ),
+                (
+                    "tz_offset",
+                    models.IntegerField(
+                        blank=True, null=True, verbose_name="Offset do fuso horário"
+                    ),
+                ),
+                (
+                    "profile",
+                    models.JSONField(default=dict, verbose_name="Slack Profile"),
+                ),
+                (
+                    "is_admin",
+                    models.BooleanField(
+                        blank=True, null=True, verbose_name="Slack Admin"
+                    ),
+                ),
+                (
+                    "is_owner",
+                    models.BooleanField(
+                        blank=True, null=True, verbose_name="Slack Workspace Owner"
+                    ),
+                ),
+                (
+                    "is_primary_owner",
+                    models.BooleanField(
+                        blank=True,
+                        null=True,
+                        verbose_name="Slack Workspace Primary Owner",
+                    ),
+                ),
+                (
+                    "is_restricted",
+                    models.BooleanField(
+                        blank=True, null=True, verbose_name="Slack Restricted"
+                    ),
+                ),
+                (
+                    "is_ultra_restricted",
+                    models.BooleanField(
+                        blank=True, null=True, verbose_name="Slack Ultra Restricted"
+                    ),
+                ),
+                (
+                    "is_bot",
+                    models.BooleanField(
+                        blank=True, null=True, verbose_name="Slack Bot"
+                    ),
+                ),
+                ("is_app_user", models.BooleanField(verbose_name="Slack App User")),
+                (
+                    "is_workflow_bot",
+                    models.BooleanField(
+                        default=False, verbose_name="É um bot de workflow?"
+                    ),
+                ),
+                ("updated", models.DateTimeField(verbose_name="Atualizado em")),
+                (
+                    "is_email_confirmed",
+                    models.BooleanField(
+                        blank=True, null=True, verbose_name="Confirmou email no slack?"
+                    ),
+                ),
+                (
+                    "who_can_share_contact_card",
+                    models.CharField(
+                        max_length=128,
+                        verbose_name="Quem pode compartilhar cartão de contato",
+                    ),
+                ),
+                (
+                    "is_invited_user",
+                    models.BooleanField(
+                        blank=True, null=True, verbose_name="Usuário convidado"
+                    ),
+                ),
             ],
             options={
-                'ordering': ['name'],
+                "ordering": ["name"],
             },
         ),
     ]
