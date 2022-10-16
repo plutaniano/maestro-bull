@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "maestro-bull"
+version = "0.1.0"
+description = "Maestro's backend services"
+authors = ["Lucas R. <github@lucas.rs>"]
+readme = "README.md"
+packages = [{include = "maestro_bull"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+celery = "~5.2.6"
+django-cors-headers = "~3.11.0"
+django = "~3.2.14"
+django-celery-beat = "~2.2.1"
+django-filter = "~21.1"
+djangorestframework = "~3.13.1"
+djangorestframework-simplejwt = "~5.1.0"
+emoji = "~1.7.0"
+pyjwt = {extras = ["crypto"], version = "^2.5.0"}
+numpy = "~1.22.3"
+openpyxl = "~3.0.9"
+pandas = "~1.4.2"
+phonenumbers = "~8.12.46"
+psycopg2-binary = "~2.9.3"
+pydantic = {extras = ["email"], version = "^1.10.2"}
+pypdf2 = "~1.27.5"
+python-dotenv = "~0.20.0"
+redis = "~4.2.2"
+requests = "~2.27.1"
+slack-bolt = "~1.13.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.10.0"
+ipython = "^8.5.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
