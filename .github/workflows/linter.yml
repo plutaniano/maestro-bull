@@ -1,0 +1,16 @@
+name: Linter
+on: push
+jobs:
+    linter:
+        name: Runs a linter on the codebase
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Runs the linter
+              uses: github/super-linter@v3
+              env:
+                DEFAULT_BRANCH: master
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
